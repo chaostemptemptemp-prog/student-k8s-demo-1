@@ -56,4 +56,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/student-k8s-demo:${{ github.sha }}
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/student-k8s-demo-1:${{ github.sha }}
