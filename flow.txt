@@ -1,0 +1,29 @@
+python -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -r requirements.txt
+.\.venv\Scripts\python.exe -m pytest -v
+.\.venv\Scripts\python.exe app.py
+docker build -t student-k8s-demo:v1 .
+docker images
+docker run --rm -d --name student-demo -p 5000:5000 student-k8s-demo:v1
+docker ps
+docker logs student-demo
+docker stop student-demo
+
+
+git init
+git branch -M main
+git add .
+git status
+git commit -m "Initial Flask application and Docker setup"
+git remote add origin https://github.com/YOUR_USERNAME/student-k8s-demo.git
+git push -u origin main
+
+kubectl config current-context
+kubectl get nodes
+git rev-parse HEAD
+kubectl apply -f k8s/deployment.yaml
+kubectl apply -f k8s/service.yaml
+kubectl rollout status deployment/student-k8s-demo
+kubectl get deployments
+kubectl get pods
+kubectl get services
